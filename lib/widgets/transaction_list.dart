@@ -18,7 +18,7 @@ class TransactionList extends StatelessWidget {
                   "No Transaction",
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
@@ -31,13 +31,14 @@ class TransactionList extends StatelessWidget {
               ],
             );
           })
-        : ListView.builder(
-            itemBuilder: (context, index) {
-              return TransactionItem(
-                  transaction: transactions[index],
-                  deleteTransaction: deleteTransaction);
-            },
-            itemCount: transactions.length,
+        : ListView(
+            children: transactions
+                .map((e) => TransactionItem(
+                      key: ValueKey(e.id),
+                      transaction: e,
+                      deleteTransaction: deleteTransaction,
+                    ))
+                .toList(),
           );
   }
 }

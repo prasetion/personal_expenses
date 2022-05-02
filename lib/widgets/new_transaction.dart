@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personal_expenses/widgets/adaptive_button.dart';
@@ -64,7 +61,7 @@ class _NewTransactionState extends State<NewTransaction> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextField(
-                decoration: InputDecoration(labelText: "Title"),
+                decoration: const InputDecoration(labelText: "Title"),
                 controller: _titleController,
                 onSubmitted: (val) {
                   _submitData();
@@ -95,7 +92,7 @@ class _NewTransactionState extends State<NewTransaction> {
               ),
               ElevatedButton(
                 onPressed: _submitData,
-                child: Text("Add transaction"),
+                child: const Text("Add transaction"),
               ),
             ],
           ),
